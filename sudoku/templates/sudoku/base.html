@@ -8,16 +8,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/png" href="{% static 'sudoku/favicon.ico' %}"/>
+        <link rel="shortcut icon" type="image/png" href="{% static 'sudoku/img/favicon.ico' %}"/>
         <title>        
             {% block title %}Sudoku{% endblock title %}            
         </title>
         
     </head>
     <body>
-        <p>{% static 'sudoku/style.css' %}</p>
         {% block content %}{% endblock content %}
-        <link rel="stylesheet" type="text/css" href="{% static 'sudoku/style.css' %}">
-        <script src="{% static 'sudoku/script.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'sudoku/css/style.css' %}">
+        <script src="{% static 'sudoku/js/script.js' %}"></script>
     </body>
 </html>
