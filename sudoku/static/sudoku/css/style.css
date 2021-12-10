@@ -175,24 +175,24 @@ input[type=number]:hover, input[type=number]:focus {
 }
 
 #extra #btn_eliminar {
-  background: url("delete.svg") no-repeat center;
+  background: url("../img/delete.svg") no-repeat center;
   background-size: 35px 35px;
 }
 
 #extra #btn_eliminar:hover {
-  background-image: url("delete_hover.svg");
+  background-image: url("../img/delete_hover.svg");
   background-color: #0d6efd;
   -webkit-transition: background .15s;
   transition: background .15s;
 }
 
 #extra .btn_borrador {
-  background: url("lapiz.svg") no-repeat center;
+  background: url("../img/lapiz.svg") no-repeat center;
   background-size: 45px 45px;
 }
 
 #extra .btn_borrador:hover {
-  background-image: url("lapiz_hover.svg");
+  background-image: url("../img/lapiz_hover.svg");
   background-color: #0d6efd;
   -webkit-transition: background .15s;
   transition: background .15s;

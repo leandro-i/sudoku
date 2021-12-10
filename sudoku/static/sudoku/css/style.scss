@@ -154,19 +154,19 @@ input[type=number] {
     display: flex;
     justify-content: space-evenly;
     #btn_eliminar {
-        background: url('delete.svg') no-repeat center;
+        background: url('../img/delete.svg') no-repeat center;
         background-size: 35px 35px;
         &:hover {
-            background-image: url('delete_hover.svg');
+            background-image: url('../img/delete_hover.svg');
             background-color: $color_botones;
             transition: background .15s;
         }
     }
     .btn_borrador {
-        background: url('lapiz.svg') no-repeat center;
+        background: url('../img/lapiz.svg') no-repeat center;
         background-size: 45px 45px;
         &:hover {
-            background-image: url('lapiz_hover.svg');
+            background-image: url('../img/lapiz_hover.svg');
             background-color: $color_botones;
             transition: background .15s;
         }
