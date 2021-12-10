@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import Http404
+from .forms import Sudoku
 
 def list_board(lista_numeros):
     """Generar board (matriz) a partir de lista.
@@ -45,4 +47,61 @@ def comprobar(board):
     
     return True
 
+
 # Create your views here.
+
+def index(request, dificultad):
+    # Validar dificultad en url
+    if dificultad not in ('easy', 'medium', 'hard'):
+        raise Http404
+    
+    # Enviando la petición del form
+    if request.method == "POST":
+        form = Sudoku(request.POST)
+
+        if form.is_valid():
+            lista_numeros = list(request.POST.values())[1:]
+            board = list_board(lista_numeros)
+            original = request.COOKIES.get('original')
+            if original:
+                original = eval(str(original)) if isinstance((eval(str(original))), list) else Http404
+            
+            form.crear_board(board, original)
+            check = comprobar(board)
+        
+    # Ingresar a la vista y cargar el board anterior, si existe
+    else:
+        board = request.COOKIES.get('board')
+        original = request.COOKIES.get('original')
+        form = Sudoku()
+        
+        if board and original and dificultad == request.COOKIES.get('dificultad'):
+            board = list_board([x for x in board if x.isnumeric()])
+            original = list_board([x for x in original if x.isnumeric()])
+            form.crear_board(board, original)
+        else:
+            board = form.crear_casillas(dificultad)
+            original = board
+        check = None
+    
+    ctx = {
+        'form': form, 
+        'board': board,
+        'check': check,
+        'dificultad': dificultad,
+    }
+    if board == None:
+        board = list_board(lista_numeros)
+    
+    try:
+        original
+    except:
+        original = board
+        
+    response = render(request, 'sudoku/index.html', ctx)
+    
+    # Establecer las cookies
+    response.set_cookie('board', board)
+    response.set_cookie('original', original)
+    response.set_cookie('dificultad', dificultad)
+    return response
