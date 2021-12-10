@@ -1,5 +1,21 @@
 from django.shortcuts import render
 
+def list_board(lista_numeros):
+    """Generar board (matriz) a partir de lista.
+
+    Args:
+        lista_numeros (list): Lista de 1 dimensión con todos los números del board.
+
+    Returns:
+        matriz: Devuelve el board representado en una matriz de dos dimensiones.
+    """
+    board = []
+    for i, x in enumerate(lista_numeros):
+        if i % 9 == 0:
+            board.append([])
+        board[-1].append(int(x) if x != '' else 0)
+    return board
+
 def comprobar(board):
     """Comprobar si el Sudoku está resuelto.
 
