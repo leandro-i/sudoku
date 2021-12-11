@@ -3,6 +3,7 @@ const numpad = document.getElementById('numpad');
 const casillas = document.querySelectorAll('.casilla');
 const btn_borrador = document.querySelector('.btn_borrador');
 const btn_eliminar = document.getElementById('btn_eliminar');
+const btn_nuevo = document.getElementById('nuevo');
 const borradores = document.querySelectorAll('.borradores');
 let borrador_bool = false;
 
@@ -65,6 +66,15 @@ btn_eliminar.addEventListener('click', e => {
     e.stopPropagation();
 })
 
+// Función nuevo board (eliminar cookies y localStorage y recargar)
+btn_nuevo.addEventListener('click', e => {
+    e.preventDefault();    
+    localStorage.clear();
+    borrar_cookies();
+    location.reload();
+    e.stopPropagation();
+})
+
 // Función escribir con el teclado
 document.addEventListener('keypress', e => {
     let casilla = document.activeElement;
@@ -96,6 +106,7 @@ document.addEventListener('keyup', e => {
     }
 })
 
+
 // Función crear/eliminar anotaciones
 function borrador(casilla, number) {
     if (casilla.value != '') {
@@ -111,7 +122,6 @@ function borrador(casilla, number) {
             return
         }
     }
-
     switch (number) {
         case '1':
             text.style.color = '#371d8f';
@@ -196,6 +206,18 @@ function cargar_previo() {
     }
     localStorage.setItem('dificultad', window.location.pathname);
 }
+
+// Eliminar todas las cookies
+function borrar_cookies() {
+    let cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        let pos = cookie.indexOf("=");
+        let name = pos > -1 ? cookie.substr(0, pos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+  }
+
 
 // function getCookie(cname) {
 //     let name = cname + "=";
