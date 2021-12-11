@@ -48,8 +48,10 @@
                 <div class="borradores">{{ casilla }}</div>
                 {% endif %}                    
             {% endfor %}            
-            <input class="btn-form btn btn-outline-success" type="submit" value="Comprobar">
-            <input id="nuevo" class="btn-form btn btn-outline-success" type="submit" value="Nuevo">
+            <div id="botones-form">
+                <input id="nuevo" class="btn-form btn btn-success" type="button" value="Nuevo">
+                <input class="btn-form btn btn-success" type="submit" value="Comprobar">
+            </div>
     </form>
         <div id="botonera">
             <div id="numpad">
@@ -57,9 +59,9 @@
                 <input type="button" value="4" class="btn_num btn btn-outline-primary"><input type="button" value="5" class="btn_num btn btn-outline-primary"><input type="button" value="6" class="btn_num btn btn-outline-primary">
                 <input type="button" value="7" class="btn_num btn btn-outline-primary"><input type="button" value="8" class="btn_num btn btn-outline-primary"><input type="button" value="9" class="btn_num btn btn-outline-primary">
             </div>
-            <div id="extra">
-                <input type="button" class="btn_num btn btn-outline-primary" id="btn_eliminar">
+            <div id="botones-extra">
                 <input type="button" class="btn_num btn btn-outline-primary btn_borrador">
+                <input type="button" class="btn_num btn btn-outline-primary" id="btn_eliminar">
             </div>
         </div>
 </div>
