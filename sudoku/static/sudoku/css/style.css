@@ -1,4 +1,4 @@
-.modal, .modal .modal-body, .contenedor {
+.modal, .contenedor {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,7 +26,7 @@ body {
   padding: 0;
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
-  z-index: 99999;
+  z-index: 9999;
   width: 100%;
   height: 100%;
 }
@@ -271,6 +271,11 @@ input[type=number]:hover, input[type=number]:focus {
   }
   .w-25 {
     width: 50% !important;
+  }
+  .modal-body,
+  .modal-content {
+    min-width: 210px;
+    min-height: 170px;
   }
 }
 
