@@ -1,0 +1,264 @@
+$color_fondo: #e1e9f5;
+$color1: #1a1a85;
+$color2: #595985;
+$color3: #adadad;
+$color_vacio: #9b2929;
+$color_focus: #fff9d5;
+$color_focus_borde: #c5a800;
+$color_borrador: #ffea6e;
+$color_botones: #0d6efd;
+
+%flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color_fondo;
+}
+
+// Modal
+.modal {
+    @extend %flex;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    .modal-content {
+        color: #fff;
+        background-color: #0b992f;
+        width: 40vw;
+        height: 20vh;
+    }
+    .modal-body {
+        font-size: 1.2rem;
+    }
+}
+
+// Tabla
+.contenedor {
+    @extend %flex;
+}
+#grilla {
+    display: block;
+    outline: 2px solid $color2;
+    margin: 50px;
+    width: 454px;
+    height: 454px;
+    min-width: 1vw;
+}
+.fila {
+    display: flex;            
+    &:nth-of-type(3n+3):not(:last-of-type) {
+        border-bottom: 2px solid $color2;
+    }
+}
+.casilla {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color3;
+    text-align: center;
+    font: bold 35px Arial, serif;
+    color: $color1;
+    cursor: pointer;
+
+    &:focus {
+        background-color: $color_focus;
+        outline-color: $color_focus_borde;
+    }
+}
+.vacio {
+    color: $color_vacio;
+}
+.anotacion {
+    position: absolute;
+    z-index: 10;
+    font: 15px Arial, serif;
+    margin: 0 2px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.borradores {
+    position: relative;
+    &:nth-of-type(3n+3):not(:nth-of-type(3n+9)) {
+        border-right: 2px solid $color2;
+    }
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+.form-select {
+    background-color: #f7fbff;
+    margin-left: 2%;
+}
+
+input {
+    background-color: $color_fondo;
+}
+
+#botones-form {
+    margin: 0 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-form {
+    margin-bottom: 10px;
+    width: 120px;
+}
+
+input[type=number] {
+    &::-webkit-inner-spin-button, 
+    &::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    -moz-appearance:textfield;
+    &:hover,
+    &:focus {
+        -moz-appearance: number-input;
+    }
+}
+
+// Botonera
+#botonera {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.btn_num {
+    width: 60px;
+    height: 60px;
+    font: 30px Arial, serif;
+    margin: 1px;
+}
+#numpad {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 200px;
+    min-height: 200px;
+    height: auto;
+}
+#botones-extra {
+    display: flex;
+    justify-content: space-evenly;
+    #btn_eliminar {
+        background: url('../img/delete.svg') no-repeat center;
+        background-size: 35px 35px;
+        &:hover {
+            background-image: url('../img/delete_hover.svg');
+            background-color: $color_botones;
+            transition: background .15s;
+        }
+    }
+    .btn_borrador {
+        background: url('../img/lapiz.svg') no-repeat center;
+        background-size: 45px 45px;
+        &:hover {
+            background-image: url('../img/lapiz_hover.svg');
+            background-color: $color_botones;
+            transition: background .15s;
+        }
+    }
+    .activado {
+        background-color: $color_borrador;
+    }
+}
+
+@media (max-width: 764px) {
+    .contenedor {
+        margin: 10px;
+        width: auto;        
+        justify-content: center;
+        flex-direction: column;
+    }
+    #botonera {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #numpad {
+        width: auto;
+        flex-wrap: nowrap;
+        min-height: auto;
+        justify-content: center;
+    }
+    #grilla {
+        margin: 10px 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+    .casilla {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    .btn_num {
+        width: 35px; 
+        height: 42px;
+        font-size: 20px;
+        margin: 0;
+    }
+    #botones-extra {
+        width: auto;
+        justify-content: start;
+    }
+    #botones-extra input {
+        width: 35px;
+        height: 42px;
+    }
+    .anotacion {
+        font-size: 10px;
+    }
+    #btn_eliminar {
+        background-size: 25px 25px;
+    }
+    .btn_borrador {
+        background-size: 32px 32px;
+    }
+    .w-25 {
+        width: 50% !important;
+    }
+    .modal-body,
+    .modal-content {
+        min-width: 210px;
+        min-height: 170px;
+    }
+}
+
+@media (max-width: 390px) {
+    .casilla {
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+    }
+    #botonera {
+        flex-direction: column;
+    }
+    #botones-extra {
+        justify-content: center;
+    }
+    .btn-form {
+        width: 90px;
+        height: 35px;
+        font-size: 13px;
+    }
+}

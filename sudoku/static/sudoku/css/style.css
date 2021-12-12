@@ -1,0 +1,316 @@
+.modal, .contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #e1e9f5;
+}
+
+.modal {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+}
+
+.modal .modal-content {
+  color: #fff;
+  background-color: #0b992f;
+  width: 40vw;
+  height: 20vh;
+}
+
+.modal .modal-body {
+  font-size: 1.2rem;
+}
+
+#grilla {
+  display: block;
+  outline: 2px solid #595985;
+  margin: 50px;
+  width: 454px;
+  height: 454px;
+  min-width: 1vw;
+}
+
+.fila {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fila:nth-of-type(3n+3):not(:last-of-type) {
+  border-bottom: 2px solid #595985;
+}
+
+.casilla {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #adadad;
+  text-align: center;
+  font: bold 35px Arial, serif;
+  color: #1a1a85;
+  cursor: pointer;
+}
+
+.casilla:focus {
+  background-color: #fff9d5;
+  outline-color: #c5a800;
+}
+
+.vacio {
+  color: #9b2929;
+}
+
+.anotacion {
+  position: absolute;
+  z-index: 10;
+  font: 15px Arial, serif;
+  margin: 0 2px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.borradores {
+  position: relative;
+}
+
+.borradores:nth-of-type(3n+3):not(:nth-of-type(3n+9)) {
+  border-right: 2px solid #595985;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+.form-select {
+  background-color: #f7fbff;
+  margin-left: 2%;
+}
+
+input {
+  background-color: #e1e9f5;
+}
+
+#botones-form {
+  margin: 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.btn-form {
+  margin-bottom: 10px;
+  width: 120px;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]:hover, input[type=number]:focus {
+  -moz-appearance: number-input;
+}
+
+#botonera {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.btn_num {
+  width: 60px;
+  height: 60px;
+  font: 30px Arial, serif;
+  margin: 1px;
+}
+
+#numpad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 200px;
+  min-height: 200px;
+  height: auto;
+}
+
+#botones-extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#botones-extra #btn_eliminar {
+  background: url("../img/delete.svg") no-repeat center;
+  background-size: 35px 35px;
+}
+
+#botones-extra #btn_eliminar:hover {
+  background-image: url("../img/delete_hover.svg");
+  background-color: #0d6efd;
+  -webkit-transition: background .15s;
+  transition: background .15s;
+}
+
+#botones-extra .btn_borrador {
+  background: url("../img/lapiz.svg") no-repeat center;
+  background-size: 45px 45px;
+}
+
+#botones-extra .btn_borrador:hover {
+  background-image: url("../img/lapiz_hover.svg");
+  background-color: #0d6efd;
+  -webkit-transition: background .15s;
+  transition: background .15s;
+}
+
+#botones-extra .activado {
+  background-color: #ffea6e;
+}
+
+@media (max-width: 764px) {
+  .contenedor {
+    margin: 10px;
+    width: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #botonera {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #numpad {
+    width: auto;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    min-height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #grilla {
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+  .casilla {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+  }
+  .btn_num {
+    width: 35px;
+    height: 42px;
+    font-size: 20px;
+    margin: 0;
+  }
+  #botones-extra {
+    width: auto;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  #botones-extra input {
+    width: 35px;
+    height: 42px;
+  }
+  .anotacion {
+    font-size: 10px;
+  }
+  #btn_eliminar {
+    background-size: 25px 25px;
+  }
+  .btn_borrador {
+    background-size: 32px 32px;
+  }
+  .w-25 {
+    width: 50% !important;
+  }
+  .modal-body,
+  .modal-content {
+    min-width: 210px;
+    min-height: 170px;
+  }
+}
+
+@media (max-width: 390px) {
+  .casilla {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+  #botonera {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #botones-extra {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .btn-form {
+    width: 90px;
+    height: 35px;
+    font-size: 13px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

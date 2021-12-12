@@ -1,0 +1,22 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="{% static 'sudoku/img/favicon.ico' %}"/>
+        <title>        
+            {% block title %}Sudoku{% endblock title %}            
+        </title>
+        
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+        <link rel="stylesheet" type="text/css" href="{% static 'sudoku/css/style.css' %}">
+        <script src="{% static 'sudoku/js/script.js' %}"></script>
+    </body>
+</html>
