@@ -209,7 +209,7 @@ input[type=number]:hover, input[type=number]:focus {
   transition: background .15s;
 }
 
-#botones-extra .btn_borrador .activado {
+#botones-extra .activado {
   background-color: #ffea6e;
 }
 

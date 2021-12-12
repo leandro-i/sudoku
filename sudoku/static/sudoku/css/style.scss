@@ -176,9 +176,9 @@ input[type=number] {
             background-color: $color_botones;
             transition: background .15s;
         }
-        .activado {
-            background-color: $color_borrador;
-        }
+    }
+    .activado {
+        background-color: $color_borrador;
     }
 }
 
