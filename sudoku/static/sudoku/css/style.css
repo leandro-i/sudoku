@@ -34,8 +34,13 @@ body {
 .modal .modal-content {
   color: #fff;
   background-color: #0b992f;
+  text-align: center;
   width: 40vw;
   height: 20vh;
+}
+
+.modal .incompleto {
+  background-color: #c42323;
 }
 
 .modal .modal-body {
