@@ -1,6 +1,8 @@
 # Sudoku Web
 Aplicación web de Sudoku en Django.
 
+![screenshot.png](https://i.ibb.co/kSB59wS/ss.png)
+
 ## Demo
 http://leandroi.pythonanywhere.com/sudoku/
 
@@ -17,5 +19,5 @@ http://leandroi.pythonanywhere.com/sudoku/
 - Activar el botón para las anotaciones con la barra espaciadora (_space bar_).
 - Borrar el contenido de la casilla con la tecla de retroceso (_backspace_).
 
-## Agradecimiento
+## Agradecimientos
 [suGOku API](https://github.com/bertoort/sugoku)
