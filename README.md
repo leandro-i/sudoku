@@ -1,6 +1,8 @@
 # Sudoku Web
 Aplicación web de Sudoku en Django.
 
+![screenshot.png](https://raw.githubusercontent.com/leandro-i/images/master/screenshot.png?token=ASCBCXB2WCBDUSYQFYZ7PWTBW2LVY)
+
 ## Demo
 http://leandroi.pythonanywhere.com/sudoku/
 
