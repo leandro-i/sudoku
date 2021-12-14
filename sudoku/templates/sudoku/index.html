@@ -3,14 +3,6 @@
 {% block title %}Sudoku - {{ dificultad|title }}{% endblock title %}
     
 {% block content %}
-
-<p>Finalizado:
-    {% ifequal check True %}
-        sí
-    {% else %}
-        no
-    {% endifequal %}
-</p>
 {% ifequal check True %}
     <div class="modal">
         <div class="modal-dialog">
@@ -67,19 +59,19 @@
                 {% endfor %}
         </form>
         <div id="botones-form">
-            <button id="nuevo" class="btn-form btn btn-success" type="button">Nuevo</button>
+            <input id="nuevo" class="btn-form btn btn-success" type="button" value="Nuevo">
             <input form="sudoku-form" class="btn-form btn btn-success" type="submit" value="Comprobar">
         </div>
     </div>
         <div id="botonera">
             <div id="numpad">
-                <input type="button" value="1" class="btn_num btn btn-outline-primary"><input type="button" value="2" class="btn_num btn btn-outline-primary"><input type="button" value="3" class="btn_num btn btn-outline-primary">
-                <input type="button" value="4" class="btn_num btn btn-outline-primary"><input type="button" value="5" class="btn_num btn btn-outline-primary"><input type="button" value="6" class="btn_num btn btn-outline-primary">
-                <input type="button" value="7" class="btn_num btn btn-outline-primary"><input type="button" value="8" class="btn_num btn btn-outline-primary"><input type="button" value="9" class="btn_num btn btn-outline-primary">
+                <input type="button" value="1" class="btn-num btn btn-outline-primary"><input type="button" value="2" class="btn-num btn btn-outline-primary"><input type="button" value="3" class="btn-num btn btn-outline-primary">
+                <input type="button" value="4" class="btn-num btn btn-outline-primary"><input type="button" value="5" class="btn-num btn btn-outline-primary"><input type="button" value="6" class="btn-num btn btn-outline-primary">
+                <input type="button" value="7" class="btn-num btn btn-outline-primary"><input type="button" value="8" class="btn-num btn btn-outline-primary"><input type="button" value="9" class="btn-num btn btn-outline-primary">
             </div>
             <div id="botones-extra">
-                <input type="button" class="btn_num btn btn-outline-primary btn_borrador">
-                <input type="button" class="btn_num btn btn-outline-primary" id="btn_eliminar">
+                <input type="button" class="btn-num btn btn-outline-primary btn-borrador">
+                <input type="button" class="btn-num btn btn-outline-primary" id="btn-eliminar">
             </div>
         </div>
 </div>
