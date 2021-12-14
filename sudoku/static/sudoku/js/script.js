@@ -214,6 +214,9 @@ function borrar_cookies() {
         let cookie = cookies[i].trim();
         let pos = cookie.indexOf("=");
         let name = pos > -1 ? cookie.substr(0, pos) : cookie;
+        if (name === 'csrftoken') {
+            continue;
+        }
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
     }
   }
