@@ -27,6 +27,22 @@
     </div>
 {% endifequal %}
 
+{% ifequal check False %} 
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content incompleto">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">:(</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    El puzzle no está finalizado.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endifequal %}    
+
 <select class="form-select w-25" name="dificultad" id="dificultad" onchange="location=location.toString().split('/').slice(0,-2).join('/')+'/'+this.value;">
     <option value="easy" {% ifequal dificultad 'easy' %} selected {% endifequal %}>Fácil</option>
     <option value="medium" {% ifequal dificultad 'medium' %} selected {% endifequal %}>Normal</option>
@@ -34,25 +50,27 @@
 </select>
 
 <div class="contenedor">
-    <form method="post">
-        {% csrf_token %}
-        <div id="grilla">
-            {% for casilla in form %}            
-                {% if forloop.first %}
-                    <div class="fila"><div class="borradores"> {{ casilla }}</div>
-                {% elif forloop.last %}
-                <div class="borradores">{{ casilla }}</div></div></div>
-                {% elif forloop.counter0|divisibleby:"9" %}
-                    </div><div class="fila"> <div class="borradores">{{ casilla }}</div>
-                {% else %}
-                <div class="borradores">{{ casilla }}</div>
-                {% endif %}                    
-            {% endfor %}            
-            <div id="botones-form">
-                <input id="nuevo" class="btn-form btn btn-success" type="button" value="Nuevo">
-                <input class="btn-form btn btn-success" type="submit" value="Comprobar">
-            </div>
-    </form>
+    <div id="contenedor-grilla">
+        <form id="sudoku-form" method="post">
+            {% csrf_token %}
+            <div id="grilla">
+                {% for casilla in form %}
+                    {% if forloop.first %}
+                        <div class="fila"><div class="borradores"> {{ casilla }}</div>
+                    {% elif forloop.last %}
+                    <div class="borradores">{{ casilla }}</div></div></div>
+                    {% elif forloop.counter0|divisibleby:"9" %}
+                        </div><div class="fila"> <div class="borradores">{{ casilla }}</div>
+                    {% else %}
+                    <div class="borradores">{{ casilla }}</div>
+                    {% endif %}
+                {% endfor %}
+        </form>
+        <div id="botones-form">
+            <button id="nuevo" class="btn-form btn btn-success" type="button">Nuevo</button>
+            <input form="sudoku-form" class="btn-form btn btn-success" type="submit" value="Comprobar">
+        </div>
+    </div>
         <div id="botonera">
             <div id="numpad">
                 <input type="button" value="1" class="btn_num btn btn-outline-primary"><input type="button" value="2" class="btn_num btn btn-outline-primary"><input type="button" value="3" class="btn_num btn btn-outline-primary">
