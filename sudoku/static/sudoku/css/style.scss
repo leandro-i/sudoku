@@ -145,7 +145,7 @@ input[type=number] {
     flex-direction: column;
 
 }
-.btn_num {
+.btn-num {
     width: 60px;
     height: 60px;
     font: 30px Arial, serif;
@@ -163,7 +163,7 @@ input[type=number] {
 #botones-extra {
     display: flex;
     justify-content: space-evenly;
-    #btn_eliminar {
+    #btn-eliminar {
         background: url('../img/delete.svg') no-repeat center;
         background-size: 35px 35px;
         &:hover {
@@ -172,7 +172,7 @@ input[type=number] {
             transition: background .15s;
         }
     }
-    .btn_borrador {
+    .btn-borrador {
         background: url('../img/lapiz.svg') no-repeat center;
         background-size: 45px 45px;
         &:hover {
@@ -183,6 +183,22 @@ input[type=number] {
     }
     .activado {
         background-color: $color_borrador;
+    }
+}
+
+// Link Github
+#github {
+    background-color: $color2;
+    border-radius: 0.25rem;
+    padding: 8px;
+    margin: 10px;
+    text-decoration: none;
+    color: $color_fondo;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    &:hover {
+        background-color: darken($color2, 10);
     }
 }
 
@@ -215,10 +231,13 @@ input[type=number] {
         height: 40px;
         font-size: 30px;
     }
-    .btn_num {
+    .btn-num {
         width: 35px; 
         height: 42px;
         font-size: 20px;
+        margin: 0;
+    }
+    #botones-form{
         margin: 0;
     }
     #botones-extra {
@@ -232,10 +251,10 @@ input[type=number] {
     .anotacion {
         font-size: 10px;
     }
-    #btn_eliminar {
+    #btn-eliminar {
         background-size: 25px 25px;
     }
-    .btn_borrador {
+    .btn-borrador {
         background-size: 32px 32px;
     }
     .w-25 {
