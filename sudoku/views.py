@@ -58,16 +58,20 @@ def index(request, dificultad):
     # Enviando la petición del form
     if request.method == "POST":
         form = Sudoku(request.POST)
-
+        print('submit')
         if form.is_valid():
             lista_numeros = list(request.POST.values())[1:]
             board = list_board(lista_numeros)
             original = request.COOKIES.get('original')
             if original:
                 original = eval(str(original)) if isinstance((eval(str(original))), list) else Http404
-            
-            form.crear_board(board, original)
-            check = comprobar(board)
+                form.crear_board(board, original)
+                check = comprobar(board)
+            else:                
+                form = Sudoku()
+                board = form.crear_casillas(dificultad)
+                original = board
+                check = None
         
     # Ingresar a la vista y cargar el board anterior, si existe
     else:
