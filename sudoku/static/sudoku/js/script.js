@@ -1,20 +1,20 @@
 let grilla = document.getElementById('grilla');
 const numpad = document.getElementById('numpad');
 const casillas = document.querySelectorAll('.casilla');
-const btn_borrador = document.querySelector('.btn_borrador');
-const btn_eliminar = document.getElementById('btn_eliminar');
-const btn_nuevo = document.getElementById('nuevo');
+const btnBorrador = document.querySelector('.btn-borrador');
+const btnEliminar = document.getElementById('btn-eliminar');
+const btnNuevo = document.getElementById('nuevo');
 const borradores = document.querySelectorAll('.borradores');
-let borrador_bool = false;
+let borradorBool = false;
 
 const modal = document.querySelector('.modal');
-const btn_modal = document.querySelector('.btn-close');
+const btnModal = document.querySelector('.btn-close');
 
 // Cargar board previo, si existe
-window.addEventListener('load', cargar_previo);
+window.addEventListener('load', cargarPrevio);
 
 // Función cerrar modal
-if (modal && btn_modal) {
+if (modal && btnModal) {
     modal.addEventListener('click', e => {
         e.preventDefault();
         if (e.target.classList.contains('modal')) {
@@ -22,7 +22,7 @@ if (modal && btn_modal) {
         }
         e.stopPropagation();
     })    
-    btn_modal.addEventListener('click', e => modal.style.display = 'none');
+    btnModal.addEventListener('click', e => modal.style.display = 'none');
 }
 
 // Cargar número en el board
@@ -31,8 +31,8 @@ numpad.addEventListener('click', e => {
     e.preventDefault();
     let casilla = document.activeElement;
     if (e.target.tagName == 'INPUT' && casilla.tagName == 'INPUT' && casilla.classList.contains('vacio')) {
-        if (!borrador_bool) {
-            eliminar_borradores(casilla);
+        if (!borradorBool) {
+            eliminarBorradores(casilla);
             if (casilla.classList.contains('casilla')) {
                 casilla.setAttribute('value', e.target.value)
             }
@@ -45,32 +45,32 @@ numpad.addEventListener('click', e => {
 })
 
 // Función botón de borradores
-btn_borrador.addEventListener('mousedown', e => e.preventDefault());
-btn_borrador.addEventListener('click', e => {
+btnBorrador.addEventListener('mousedown', e => e.preventDefault());
+btnBorrador.addEventListener('click', e => {
     e.preventDefault();
-    borrador_bool = borrador_bool? false : true;
-    btn_borrador.classList.toggle('activado');
+    borradorBool = borradorBool? false : true;
+    btnBorrador.classList.toggle('activado');
     e.stopPropagation();
 })
 
 // Función borrar contenido de la casilla
-btn_eliminar.addEventListener('mousedown', e => e.preventDefault());
-btn_eliminar.addEventListener('click', e => {
+btnEliminar.addEventListener('mousedown', e => e.preventDefault());
+btnEliminar.addEventListener('click', e => {
     e.preventDefault();
     let casilla = document.activeElement;
     if (casilla.tagName == 'INPUT' && casilla.classList.contains('vacio')) {
         casilla.setAttribute('value', '')
-        eliminar_borradores(casilla);
+        eliminarBorradores(casilla);
         almacenar();
     }
     e.stopPropagation();
 })
 
 // Función nuevo board (eliminar cookies y localStorage y recargar)
-btn_nuevo.addEventListener('click', e => {
+btnNuevo.addEventListener('click', e => {
     e.preventDefault();    
     localStorage.clear();
-    borrar_cookies();
+    borrarCookies();
     location.reload();
     e.stopPropagation();
 })
@@ -80,8 +80,8 @@ document.addEventListener('keypress', e => {
     let casilla = document.activeElement;
     let number = e.key;
     if (casilla.tagName == 'INPUT' && casilla.classList.contains('vacio') && !isNaN(number) && number !== '0' && number !== ' ') {
-        if (!borrador_bool) {
-            eliminar_borradores(casilla);
+        if (!borradorBool) {
+            eliminarBorradores(casilla);
             casilla.setAttribute('value', number)
         } else {
             borrador(casilla, number);
@@ -94,7 +94,7 @@ document.addEventListener('keypress', e => {
 document.addEventListener('keypress', e => {
     if (e.code == 'Space') {
         let click = new Event('click');
-        btn_borrador.dispatchEvent(click);
+        btnBorrador.dispatchEvent(click);
     }
 })
 
@@ -102,7 +102,7 @@ document.addEventListener('keypress', e => {
 document.addEventListener('keyup', e => {
     if (e.code == 'Backspace') {
         let click = new Event('click');
-        btn_eliminar.dispatchEvent(click);
+        btnEliminar.dispatchEvent(click);
     }
 })
 
@@ -180,7 +180,7 @@ function borrador(casilla, number) {
     
 }
 
-function eliminar_borradores(casilla) {
+function eliminarBorradores(casilla) {
     let anotaciones = Array.from(casilla.parentNode.children);
     anotaciones.forEach(element => {
         if (element.tagName == 'SPAN') {
@@ -196,7 +196,7 @@ function almacenar() {
 }
 
 // Cargar board previo, si es la misma dificultad
-function cargar_previo() {
+function cargarPrevio() {
     let dificultad = localStorage.getItem('dificultad');
     let itemSudoku = localStorage.getItem('sudoku');
     if (window.location.pathname.includes(dificultad) && itemSudoku) {
@@ -208,7 +208,7 @@ function cargar_previo() {
 }
 
 // Eliminar todas las cookies
-function borrar_cookies() {
+function borrarCookies() {
     let cookies = document.cookie.split(";");
     for (let i = 0; i < cookies.length; i++) {
         let cookie = cookies[i].trim();
