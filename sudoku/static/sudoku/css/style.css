@@ -331,10 +331,13 @@ input[type=number]:hover, input[type=number]:focus {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .btn-form {
-    width: 90px;
+  .btn-form,
+  #github {
     height: 35px;
     font-size: 13px;
+  }
+  .btn-form {
+    width: 90px;
   }
 }
 /*# sourceMappingURL=style.css.map */
