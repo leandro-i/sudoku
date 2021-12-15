@@ -21,7 +21,10 @@ $color_botones: #0d6efd;
 }
 
 body {
+    display: flex; 
+    flex-direction: column; 
     background-color: $color_fondo;
+    min-height: 100vh;
 }
 
 // Modal
@@ -185,18 +188,23 @@ input[type=number] {
         background-color: $color_borrador;
     }
 }
+footer {
+    position: relative;
+    margin-top: auto;
+    min-height: 50px;
+}
 
 // Link Github
 #github {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     background-color: $color2;
     border-radius: 0.25rem;
     padding: 8px;
     margin: 10px;
     text-decoration: none;
     color: $color_fondo;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     &:hover {
         background-color: darken($color2, 10);
     }
@@ -223,7 +231,7 @@ input[type=number] {
     #grilla {
         margin: 10px 0;
         padding: 0;
-        width: 100%;
+        width: 40px*9+4;
         height: auto;
     }
     .casilla {
@@ -272,6 +280,10 @@ input[type=number] {
         width: 30px;
         height: 30px;
         font-size: 1.5rem;
+    }
+    #grilla {
+        width: 30px*9+4;
+        height: auto;
     }
     #botonera {
         flex-direction: column;

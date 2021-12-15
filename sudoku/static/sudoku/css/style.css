@@ -18,7 +18,15 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #e1e9f5;
+  min-height: 100vh;
 }
 
 .modal {
@@ -218,16 +226,22 @@ input[type=number]:hover, input[type=number]:focus {
   background-color: #ffea6e;
 }
 
+footer {
+  position: relative;
+  margin-top: auto;
+  min-height: 50px;
+}
+
 #github {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background-color: #595985;
   border-radius: 0.25rem;
   padding: 8px;
   margin: 10px;
   text-decoration: none;
   color: #e1e9f5;
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 #github:hover {
@@ -268,7 +282,7 @@ input[type=number]:hover, input[type=number]:focus {
   #grilla {
     margin: 10px 0;
     padding: 0;
-    width: 100%;
+    width: 364px;
     height: auto;
   }
   .casilla {
@@ -319,6 +333,10 @@ input[type=number]:hover, input[type=number]:focus {
     width: 30px;
     height: 30px;
     font-size: 1.5rem;
+  }
+  #grilla {
+    width: 274px;
+    height: auto;
   }
   #botonera {
     -webkit-box-orient: vertical;
