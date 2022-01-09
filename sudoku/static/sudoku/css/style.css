@@ -39,6 +39,10 @@ body {
   height: 100%;
 }
 
+.modal .modal-dialog {
+  max-width: 100%;
+}
+
 .modal .modal-content {
   color: #fff;
   background-color: #0b992f;
